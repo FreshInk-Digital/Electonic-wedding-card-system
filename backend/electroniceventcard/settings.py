@@ -26,8 +26,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # custom_app
-    'card',
-    'event',
+    'cardapp',
+    'eventapp',
 ]
 
 MIDDLEWARE = [
