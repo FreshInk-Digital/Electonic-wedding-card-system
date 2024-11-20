@@ -1,10 +1,14 @@
-# Byte-compiled / optimized / compiled Python files
+# General Python files
 __pycache__/
 *.py[cod]
 *$py.class
 
-# C extensions
-*.so
+# Virtual environment
+venv/
+env/
+
+# Local environment variables
+.env
 
 # Django specific
 db.sqlite3
@@ -14,62 +18,36 @@ db.sqlite3
 *.pyo
 *.sqlite3
 
-# Local environment settings
-.env
-
-# Node.js dependencies (if using a frontend with your API)
-node_modules/
+# Django migrations
+**/migrations/
 
 # Static and media files
-/static/
-media/
+backend/static/
+backend/media/
 
-# Django migrations
-**/migrations/**
+# Pipenv files
+backend/Pipfile
+backend/Pipfile.lock
 
-# VS Code
+# IDE-specific files
 .vscode/
-
-# PyCharm
 .idea/
 
-# MacOS
+# macOS-specific files
 .DS_Store
 
-# Windows
+# Windows-specific files
 Thumbs.db
 desktop.ini
-
-# Virtual Environment
-venv/
-env/
-
-# pipenv
-Pipfile
-Pipfile.lock
 
 # Coverage reports
 .coverage
 htmlcov/
 .coverage.*
 
-# Test results
+# Test-related files
 *.xml
-*.out
-*.err
-
-# MyPy
-.mypy_cache/
-
-# Pytest cache
 .pytest_cache/
-
-# Celery
-celerybeat-schedule
-celerybeat.pid
-
-# Logs
-*.log
 *.out
 *.err
 
