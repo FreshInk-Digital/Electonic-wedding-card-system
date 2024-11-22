@@ -1,3 +1,29 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+frontend/e-event-card/node_modules
+frontend/e-event-card//.pnp
+frontend/e-event-card/.pnp.js
+
+# testing
+frontend/e-event-card//coverage
+
+# production
+frontend/e-event-card//build
+
+# misc
+frontend/e-event-card/.DS_Store
+frontend/e-event-card/.env.local
+frontend/e-event-card/.env.development.local
+frontend/e-event-card/.env.test.local
+frontend/e-event-card/.env.production.local
+
+frontend/e-event-card/npm-debug.log*
+frontend/e-event-card/yarn-debug.log*
+frontend/e-event-card/yarn-error.log*
+
+
+
 # General Python files
 __pycache__/
 *.py[cod]
