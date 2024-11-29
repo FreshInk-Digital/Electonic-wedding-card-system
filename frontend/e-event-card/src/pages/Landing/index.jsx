@@ -12,7 +12,7 @@ import {
   Text,
   Flex,
   Link,
-  UnorderedList,
+  List,
   ListItem,
   IconButton,
   Image,
@@ -34,13 +34,13 @@ export default function LandingPage() {
         {/* language selection section */}
         <LanguageSelectionSection />
 
-        {/* landing page main section /}
-<Landing PageMainSection />
+        {/* landing page main section */}
+        <LandingPageMainSection />
 
-{/* landing page main section
-<LandingPageMainSectionl />
+        {/* landing page main section */}
+        <LandingPageMainSection1 />
 
-{/* landing content section */}
+        {/* landing content section */}
         <LandingContentSection />
 
         {/* hero section */}
@@ -96,7 +96,7 @@ export default function LandingPage() {
                       w="128px"
                       fit="contain"
                     />
-                    <UnorderedList
+                    <List
                       styleType="none"
                       display="flex"
                       justifyContent="space-between"
@@ -128,7 +128,7 @@ export default function LandingPage() {
                           <Text size="texts">Gallery</Text>
                         </Link>
                       </ListItem>
-                    </UnorderedList>
+                    </List>
                   </Flex>
                   <Flex gap="6px">
                     <IconButton
@@ -173,7 +173,7 @@ export default function LandingPage() {
                   <Text size="textlg" color="black.900_cc">
                     Links
                   </Text>
-                  <UnorderedList
+                  <List
                     styleType="none"
                     gap="14px"
                     display="flex"
@@ -209,7 +209,7 @@ export default function LandingPage() {
                         </Text>
                       </Link>
                     </ListItem>
-                  </UnorderedList>
+                  </List>
                 </Flex>
                 <Flex
                   gap={{ base: "31px", sm: "62px" }}

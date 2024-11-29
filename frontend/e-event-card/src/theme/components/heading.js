@@ -6,7 +6,7 @@ const defaultProps = {
 
 const Heading = {
   baseStyle,
-  size,
+  sizes,
   defaultProps,
 };
 export default Heading;
