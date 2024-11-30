@@ -1,11 +1,11 @@
 import { Helmet } from "react-helmet";
 import Header from "components/Header";
 import Footer from "../../components/Footer";
+import LanguageSelectionSection from "components/LanguageSelectionSection";
 import FeatureSection from "./FeatureSection";
 import HeroSection from "./HeroSection";
 import LandingContentSection from "./LandingContentSection";
 import LandingPageMainSection from "./LandingPageMainSection";
-import LanguageSelectionSection from "./LanguageSelectionSection";
 import { Box, Image } from "@chakra-ui/react";
 import React from "react";
 
@@ -21,7 +21,7 @@ export default function LandingPage() {
       </Helmet>
       <Box overflowX="scroll" bg="gray.50" w="100%">
         {/* Language selection section */}
-        <LanguageSelectionSection id="language-selection" />
+        <LanguageSelectionSection />
 
         {/* Header main section */}
         <Header id="header" />

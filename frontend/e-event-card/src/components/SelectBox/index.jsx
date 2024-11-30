@@ -76,7 +76,7 @@ const SelectBox = React.forwardRef(
           }}
           menuPortalTarget={document.body}
           closeMenuOnScroll={(event) => {
-            return event.target.id == "scrollContainer";
+            return event.target.id === "scrollContainer";
           }}
           {...restProps}
         />

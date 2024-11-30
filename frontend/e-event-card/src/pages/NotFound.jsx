@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Heading, Text, Button, Flex } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import LanguageSelectionSection from "./Landing/LanguageSelectionSection";
+import LanguageSelectionSection from "components/LanguageSelectionSection";
 
 const NotFound = () => {
   return (

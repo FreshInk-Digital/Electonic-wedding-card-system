@@ -1,7 +1,24 @@
 import { Button, Link, Flex, Container, Box } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
+  const [activeLink, setActiveLink] = useState("Home"); // Track the active link
+  const navigate = useNavigate();
+
+  const navigationLinks = [
+    { label: "Home", target: "/" },
+    { label: "About", target: "#landing-content" },
+    { label: "Features", target: "#features" },
+  ];
+
+  const handleNavigation = (label, target) => {
+    setActiveLink(label); // Set active link state
+    if (!target.startsWith("#")) {
+      navigate(target); // Navigate if it's a route
+    }
+  };
+
   return (
     <Box id="header">
       <Flex
@@ -34,17 +51,17 @@ export default function Header() {
                 gap="200px"
               >
                 {/* Navigation Links */}
-                {[
-                  { label: "Home", target: "#main-section" },
-                  { label: "About", target: "#landing-content" },
-                  { label: "Features", target: "#features" },
-                ].map((link, index) => (
+                {navigationLinks.map((link, index) => (
                   <Link
                     key={index}
-                    href={link.target} // Links to specific section
-                    _hover={{ textDecoration: "none", color: "gray.900" }}
+                    href={link.target}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavigation(link.label, link.target);
+                    }}
+                    _hover={{ textDecoration: "none" }}
                     _active={{ color: "gray.900" }}
-                    color="gray.500"
+                    color={activeLink === link.label ? "gray.900" : "gray.500"}
                     fontSize="lg"
                     px="24px"
                     py="8px"
@@ -78,6 +95,9 @@ export default function Header() {
                 fontSize="xl"
                 _hover={{ bg: "gray.500", color: "white.a700_01" }}
                 _active={{ bg: "gray.300" }}
+                onClick={() => {
+                  handleNavigation("Login", "/login");
+                }}
               >
                 Login
               </Button>
@@ -95,6 +115,9 @@ export default function Header() {
                 fontSize="xl"
                 _hover={{ bg: "gray.500", color: "white.a700_01" }}
                 _active={{ bg: "gray.300" }}
+                onClick={() => {
+                  handleNavigation("Register", "/register");
+                }}
               >
                 Register
               </Button>
