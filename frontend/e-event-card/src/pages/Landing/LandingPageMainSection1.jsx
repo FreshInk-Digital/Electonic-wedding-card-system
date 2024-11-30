@@ -20,7 +20,7 @@ export default function LandingPageMainSection1() {
           >
             <Flex bg="gray.400">
               <Image
-                src="images/img_medium_shot_pho.png"
+                src="images/img_medium_shot_photo.png"
                 alt="Medium Shot Image"
                 h={{ md: "324px", base: "auto" }}
                 w="100%"

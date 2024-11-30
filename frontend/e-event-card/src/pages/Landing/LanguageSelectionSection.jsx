@@ -20,10 +20,10 @@ export default function LanguageSelectionSection() {
             alignItems="center"
             px={{ md: "56px", base: "20px" }}
           >
-            <Text color="white.a700 01">Choose Language </Text>
+            <Text color="white.a700_01">Choose Language </Text>
             <Text
               size="textmd"
-              color="white.a700 01"
+              color="white.a700_01"
               textDecoration="underline"
             >
               Swahili/English
