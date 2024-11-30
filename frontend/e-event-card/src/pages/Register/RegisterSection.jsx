@@ -108,7 +108,7 @@ export default function RegisterSection() {
                   flex={1}
                   alignItems="center"
                   px={{ md: "56px", base: "16px", sm: "20px" }}
-                  alignItems={{ md: "auto", base: "stretch" }}
+                  alignSelf={{ md: "auto", base: "stretch" }}
                   flexDirection={{ base: "column", sm: "row" }}
                 >
                   <Image
