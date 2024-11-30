@@ -1,9 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src",
-    "allowJs": false,
-    "checkJs": false,
-    "typeRoots": ["./node_modules/@types", "./types"]
-  },
-  "exclude": ["node_modules", "dist"]
+    "baseUrl": "./src"
+  }
 }

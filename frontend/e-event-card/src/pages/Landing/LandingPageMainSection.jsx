@@ -1,115 +1,192 @@
-import { Image, Button, Link, Flex, Container, Box } from "@chakra-ui/react";
+import { Image, Box, Text, Flex, Button, Container } from "@chakra-ui/react";
 import React from "react";
 
 export default function LandingPageMainSection() {
   return (
     <>
       {/* Landing page main section */}
-      <Flex
-        mt="35px"
-        gap={{ base: "26px", sm: "52px" }}
-        flexDirection="column"
-        alignItems="center"
-      >
-        <Container px={{ md: "0px", base: "20px" }}>
-          <Flex
-            gap={{ md: "40px", base: "32px", sm: "36px" }} // Reduced gap between sections
+      <Box id="main-section">
+        <Flex
+          mt="52px"
+          flexDirection="column"
+          alignItems="center"
+          fontFamily="Stigfier"
+        >
+          <Container
+            display="flex"
             flexDirection="column"
             alignItems="center"
-            px={{ md: "56px", base: "16px", sm: "20px" }}
+            justifyContent="center"
+            gap="46px"
+            px={{ md: "0px", base: "20px" }}
+            w={{ md: "74%", base: "100%" }}
           >
-            {/* Navigation Section */}
-            <Box
-              borderColor="gray.500"
-              borderWidth="1px"
-              borderStyle="solid"
-              bg="white.a700_01"
-              w={{ md: "80%", base: "100%" }}
-              borderRadius="46px"
-              p="32px"
-            >
-              <Flex
-                justifyContent="center"
-                flexDirection={{ base: "column", md: "row" }}
-                alignItems="center"
-                gap="200px"
-              >
-                {/* Navigation Links */}
-                {["Home", "About", "Feature"].map((item, index) => (
-                  <Link
-                    key={index}
-                    href={`#${item.toLowerCase()}`} // Points to the same page section
-                    _hover={{ textDecoration: "none", color: "gray.900" }} // Hover effect
-                    _active={{ color: "gray.900" }} // Active effect
-                    color="gray.500"
-                    fontSize="lg"
-                    px="24px"
-                    py="8px"
-                    textAlign="center"
-                    id={`${item.toLowerCase()}-link`} // For additional dynamic styling or targeting
-                  >
-                    {item}
-                  </Link>
-                ))}
-              </Flex>
-            </Box>
-
-            {/* Side-by-Side Login and Register Buttons */}
+            {/* Section with Image and Text */}
             <Flex
-              mt="10px" // Reduced margin-top to bring buttons closer to navigation
-              w="100%"
+              gap="20px"
               justifyContent="center"
               alignItems="center"
-              gap="40px"
+              flexDirection={{ md: "row", base: "column" }}
             >
-              <Button
-                size="lg"
-                bg="white.a700_01"
-                color="gray.500"
-                fontFamily="Stigfier"
-                borderColor="gray.500"
-                borderWidth="1px"
-                borderStyle="solid"
-                minW="350px"
-                height="60px"
-                borderRadius="46px"
-                fontSize="xl"
-                _hover={{ bg: "gray.500", color: "white.a700_01" }} // Hover effect for button
-                _active={{ bg: "gray.300" }} // Active effect for button
+              {/* Left Image */}
+              <Flex bg="gray.400" justifyContent="center" alignItems="center">
+                <Image
+                  src="images/img_medium_shot_photo.png"
+                  alt="Medium Shot Image"
+                  h={{ md: "200px", base: "auto" }}
+                  w="100%"
+                  fit="cover"
+                  borderRadius="20px"
+                />
+              </Flex>
+
+              {/* Right Text Section */}
+              <Flex
+                gap="10px"
+                bg="gray.500"
+                flex={1}
+                flexDirection="column"
+                p={{ base: "24px", sm: "38px" }}
+                h={{ md: "200px", base: "auto" }}
+                alignItems="flex-start"
               >
-                Login
-              </Button>
-              <Button
-                size="lg"
-                bg="white.a700_01"
-                color="gray.500"
-                fontFamily="Stigfier"
-                borderColor="gray.500"
-                borderWidth="1px"
-                borderStyle="solid"
-                minW="350px"
-                height="60px"
-                borderRadius="46px"
-                fontSize="xl"
-                _hover={{ bg: "gray.500", color: "white.a700_01" }} // Hover effect for button
-                _active={{ bg: "gray.300" }} // Active effect for button
-              >
-                Register
-              </Button>
+                <Flex
+                  gap="10px"
+                  alignItems="center"
+                  justifyContent="space-between"
+                  w="100%"
+                >
+                  {/* Left Image */}
+                  <Image
+                    src="images/img_frame_427320872.svg"
+                    alt="Frame Image"
+                    h="30px"
+                  />
+                  {/* Right Image */}
+                  <Image
+                    src="images/arrow_outward.svg"
+                    alt="Arrow Outward"
+                    h="30px"
+                  />
+                </Flex>
+                <Flex
+                  gap="10px"
+                  flexDirection="column"
+                  alignItems="flex-start"
+                  textAlign="flex-start"
+                >
+                  <Text color="white" fontSize="lg">
+                    But I must explain to you how
+                  </Text>
+                  <Text color="whiteAlpha.800" lineHeight="30px" fontSize="sm">
+                    But I must explain to you how all this mistaken idea of
+                    denouncing pleasure and praising pain was born, and I will
+                    give you a complete account of the
+                  </Text>
+                </Flex>
+              </Flex>
             </Flex>
-          </Flex>
 
-        </Container>
+            {/* Centered Text and Additional Buttons */}
+            <Flex
+              alignItems="flex-start"
+              justifyContent="flex-start"
+              flexDirection={{ md: "row", base: "column" }}
+              gap="44px"
+            >
+              <Flex
+                flex={1}
+                flexDirection="column"
+                alignItems="flex-start"
+                textAlign="flex-start"
+                gap="40px"
+              >
+                <Text
+                  fontSize="6xl"
+                  w={{ md: "88%", base: "100%" }}
+                  lineHeight="60px"
+                >
+                  Celebrating Love, One Frame at a Time
+                </Text>
+                <Text
+                  fontSize="sm"
+                  color="gray.700"
+                  w={{ md: "100%", base: "100%" }}
+                  lineHeight="30px"
+                >
+                  But I must explain to you how all this mistaken idea of
+                  denouncing pleasure and praising pain was born, and I will give
+                  you a complete account of the system, and expound the
+                </Text>
 
-        {/* Image Section */}
-        <Image
-          src="images/img_frame_427321538.png"
-          alt="Image"
-          h="10px"
-          w="100%"
-          objectFit="cover"
-        />
-      </Flex>
+                {/* Buttons and Secondary Image Section */}
+                <Flex
+                  gap="24px"
+                  justifyContent="flex-start"
+                  alignItems="flex-start"
+                  flexDirection={{ base: "column", md: "row" }}
+                >
+                  <Button
+                    size="lg"
+                    fontFamily="Stigfier"
+                    minW="288px"
+                    borderRadius="34px"
+                    bg="gray.500"
+                    color="white"
+                    _hover={{ bg: "gray.600" }}
+                  >
+                    Explore Now
+                  </Button>
+
+                  <Flex
+                    gap="16px"
+                    alignItems="flex-start"
+                    justifyContent="flex-start"
+                    flexDirection="row"
+                  >
+                    <Image
+                      src="images/img_frame_9.svg"
+                      alt="Secondary Image"
+                      h="68px"
+                      w={{ base: "50px", sm: "36%" }}
+                      fit="contain"
+                    />
+                    <Flex
+                      flexDirection="column"
+                      alignItems="flex-start"
+                      textAlign="flex-start"
+                    >
+                      <Text color="gray.500" fontSize="3xl">
+                        230+
+                      </Text>
+                      <Text fontSize="sm" color="gray.600">
+                        Wedding Themes
+                      </Text>
+                    </Flex>
+                  </Flex>
+                </Flex>
+              </Flex>
+
+              {/* Right-Side Large Image */}
+              <Box
+                bg="gray.400"
+                alignSelf="flex-start"
+                w={{ md: "30%", base: "100%" }}
+                borderRadius="12px"
+              >
+                <Image
+                  src="images/img_prepared_wedding_hall.png"
+                  alt="Prepared Hall Image"
+                  h={{ md: "390px", base: "auto" }}
+                  w="100%"
+                  fit="cover"
+                  borderRadius="12px"
+                />
+              </Box>
+            </Flex>
+          </Container>
+        </Flex>
+      </Box>
     </>
   );
 }

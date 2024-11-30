@@ -34,13 +34,13 @@ export default function Footer() {
                 gap="20px"
               >
                 <ListItem>
-                  <Link href="#">Homepage</Link>
+                  <Link href="#main-section">Home</Link>
                 </ListItem>
                 <ListItem>
-                  <Link href="#">Services</Link>
+                  <Link href="#features">Services</Link>
                 </ListItem>
                 <ListItem>
-                  <Link href="#">About Us</Link>
+                  <Link href="#landing-content">About Us</Link>
                 </ListItem>
                 <ListItem>
                   <Link href="#">Pricing</Link>
@@ -76,13 +76,13 @@ export default function Footer() {
               <Text fontSize="lg" fontWeight="bold">Links</Text>
               <UnorderedList listStyleType="none" display="flex" flexDirection="column" gap="14px">
                 <ListItem>
-                  <Link href="#">Home</Link>
+                  <Link href="#main-section">Home</Link>
                 </ListItem>
                 <ListItem>
-                  <Link href="#">About Us</Link>
+                  <Link href="#landing-content">About Us</Link>
                 </ListItem>
                 <ListItem>
-                  <Link href="#">Our Services</Link>
+                  <Link href="#features">Our Services</Link>
                 </ListItem>
                 <ListItem>
                   <Link href="#">Our Team</Link>
