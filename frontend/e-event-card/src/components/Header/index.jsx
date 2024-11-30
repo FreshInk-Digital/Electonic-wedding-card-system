@@ -8,14 +8,22 @@ export default function Header() {
 
   const navigationLinks = [
     { label: "Home", target: "/" },
-    { label: "About", target: "#landing-content" },
-    { label: "Features", target: "#features" },
+    { label: "About", target: "landing-content" },
+    { label: "Features", target: "features" },
   ];
 
   const handleNavigation = (label, target) => {
-    setActiveLink(label); // Set active link state
-    if (!target.startsWith("#")) {
-      navigate(target); // Navigate if it's a route
+    setActiveLink(label); // Update active link
+
+    // Scroll to section for same-page navigation
+    if (target.startsWith("#") || !target.startsWith("/")) {
+      const element = document.getElementById(target);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      // Navigate to separate routes (Login/Register)
+      navigate(target);
     }
   };
 
@@ -54,7 +62,6 @@ export default function Header() {
                 {navigationLinks.map((link, index) => (
                   <Link
                     key={index}
-                    href={link.target}
                     onClick={(e) => {
                       e.preventDefault();
                       handleNavigation(link.label, link.target);
