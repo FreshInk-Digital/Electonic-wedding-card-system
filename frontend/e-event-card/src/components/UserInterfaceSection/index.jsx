@@ -4,6 +4,7 @@ import React from "react";
 export default function UserInterfaceSection({
   manageEventsText = "Manage Events",
   timeZoneText = "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I",
+  iconPath = "images/camera.svg", // Default icon
   ...props
 }) {
   return (
@@ -22,8 +23,8 @@ export default function UserInterfaceSection({
     >
       <IconButton
         size="xl"
-        icon={<Image src="images/img_television.svg" />}
-        aria-label="7:21-Television Icon"
+        icon={<Image src={iconPath} />}
+        aria-label={manageEventsText}
         w="70px"
       />
       <Text size="textmd" color="black.900_cc">

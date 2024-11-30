@@ -56,7 +56,7 @@ export default function LandingPage() {
 
         {/* feature section */}
         <FeatureSection />
-        <Box mt="262px">
+        <Box mt="26px">
           <Image
             src="images/img_frame_427321538.png"
             alt="Image"
