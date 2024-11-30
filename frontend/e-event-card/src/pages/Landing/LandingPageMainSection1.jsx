@@ -5,7 +5,12 @@ export default function LandingPageMainSection1() {
   return (
     <>
       {/* Landing page main section */}
-      <Flex mt="52px" flexDirection="column" alignItems="center" fontFamily="Stigfier">
+      <Flex
+        mt="52px"
+        flexDirection="column"
+        alignItems="center"
+        fontFamily="Stigfier"
+      >
         <Container
           display="flex"
           flexDirection="column"
@@ -45,24 +50,24 @@ export default function LandingPageMainSection1() {
               alignItems="flex-start"
             >
               <Flex
-              gap="10px"
-              alignItems="center"
-              justifyContent="space-between"
-              w="100%"
-            >
-              {/* Left Image */}
-              <Image
-                src="images/img_frame_427320872.svg"
-                alt="Frame Image"
-                h="30px"
-              />
-              {/* Right Image */}
-              <Image
-                src="images/arrow_outward.svg"
-                alt="Arrow Outward"
-                h="30px"
-              />
-            </Flex>
+                gap="10px"
+                alignItems="center"
+                justifyContent="space-between"
+                w="100%"
+              >
+                {/* Left Image */}
+                <Image
+                  src="images/img_frame_427320872.svg"
+                  alt="Frame Image"
+                  h="30px"
+                />
+                {/* Right Image */}
+                <Image
+                  src="images/arrow_outward.svg"
+                  alt="Arrow Outward"
+                  h="30px"
+                />
+              </Flex>
               <Flex
                 gap="10px"
                 flexDirection="column"

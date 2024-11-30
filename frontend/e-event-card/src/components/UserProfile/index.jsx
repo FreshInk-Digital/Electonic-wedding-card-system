@@ -16,22 +16,34 @@ export default function UserProfile({
       bg="gray.500"
       flex={1}
       flexDirection="column"
-      alignItems="center"
+      alignItems="flex-start"
       px={{ md: "56px", base: "16px", sm: "20px" }}
       py={{ md: "60px", base: "16px", sm: "20px" }}
     >
-      <Image
-        src="images/img_frame_427320872.svg"
-        alt="Featured image"
-        h="70px"
-        mr={{ md: "30px", base: "0px" }}
-        w="96%"
-        fit="contain"
-      />
+      <Flex
+        gap="10px"
+        alignItems="center"
+        justifyContent="space-between"
+        w="100%"
+      >
+        {/* Left Image */}
+        <Image
+          src="images/img_frame_427320872.svg"
+          alt="Frame Image"
+          h="40px"
+        />
+        {/* Right Image */}
+        <Image src="images/arrow_outward.svg" alt="Arrow Outward" h="40px" />
+      </Flex>
       <Flex mb="52px" gap="48px" w="96%" flexDirection="column">
         <Flex gap="22px" flexDirection="column" alignItems="flex-start">
           <Text color="white.a700_cc">{timeZoneText}</Text>
-          <Text size="textxs" color="white.a700_cc" w={{ md: "54%", base: "100%" }} lineHeight="30px">
+          <Text
+            size="textxs"
+            color="white.a700_cc"
+            w={{ md: "54%", base: "100%" }}
+            lineHeight="30px"
+          >
             {descriptionText}
           </Text>
         </Flex>
