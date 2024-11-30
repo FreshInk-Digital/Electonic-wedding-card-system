@@ -48,7 +48,7 @@ export default function LandingPage() {
         <Image
           src="images/img_frame_427321538.png"
           alt="Image"
-          h="16px"
+          h="10px"
           mt="26px"
           w="100%"
           fit="cover"
@@ -60,7 +60,7 @@ export default function LandingPage() {
           <Image
             src="images/img_frame_427321538.png"
             alt="Image"
-            h="16px"
+            h="10px"
             w="100%"
             fit="cover"
           />
