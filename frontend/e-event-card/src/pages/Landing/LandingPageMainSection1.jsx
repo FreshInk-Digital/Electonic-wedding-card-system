@@ -4,135 +4,174 @@ import React from "react";
 export default function LandingPageMainSection1() {
   return (
     <>
-      {/* landing page main section */}
-      <Flex mt="52px" flexDirection="column" alignItems="center">
+      {/* Landing page main section */}
+      <Flex mt="52px" flexDirection="column" alignItems="center" fontFamily="Stigfier">
         <Container
-          gap="46px"
           display="flex"
           flexDirection="column"
+          alignItems="center"
+          justifyContent="center"
+          gap="46px"
           px={{ md: "0px", base: "20px" }}
+          w={{ md: "74%", base: "100%" }}
         >
+          {/* Section with Image and Text */}
           <Flex
-            gap="44px"
+            gap="20px"
             justifyContent="center"
             alignItems="center"
             flexDirection={{ md: "row", base: "column" }}
           >
-            <Flex bg="gray.400">
+            {/* Left Image */}
+            <Flex bg="gray.400" justifyContent="center" alignItems="center">
               <Image
                 src="images/img_medium_shot_photo.png"
                 alt="Medium Shot Image"
-                h={{ md: "324px", base: "auto" }}
+                h={{ md: "200px", base: "auto" }}
                 w="100%"
                 fit="cover"
                 borderRadius="20px"
               />
             </Flex>
+
+            {/* Right Text Section */}
             <Flex
-              gap="42px"
+              gap="10px"
               bg="gray.500"
               flex={1}
               flexDirection="column"
-              p={{ base: "16px", sm: "38px" }}
-              alignSelf={{ md: "auto", base: "stretch" }}
+              p={{ base: "24px", sm: "38px" }}
+              h={{ md: "200px", base: "auto" }}
+              alignItems="flex-start"
             >
+              <Flex
+              gap="10px"
+              alignItems="center"
+              justifyContent="space-between"
+              w="100%"
+            >
+              {/* Left Image */}
               <Image
                 src="images/img_frame_427320872.svg"
                 alt="Frame Image"
-                h="70px"
+                h="30px"
               />
+              {/* Right Image */}
+              <Image
+                src="images/arrow_outward.svg"
+                alt="Arrow Outward"
+                h="30px"
+              />
+            </Flex>
               <Flex
-                mr={{ md: "14px", base: "0px" }}
-                gap="22px"
+                gap="10px"
                 flexDirection="column"
                 alignItems="flex-start"
+                textAlign="flex-start"
               >
-                <Text color="white.a700 cc">But I must explain to you how</Text>
-                <Text
-                  size="textxs"
-                  color="white.a700_cc"
-                  w="100%"
-                  lineHeight="30px"
-                >
+                <Text color="white" fontSize="lg">
+                  But I must explain to you how
+                </Text>
+                <Text color="whiteAlpha.800" lineHeight="30px" fontSize="sm">
                   But I must explain to you how all this mistaken idea of
-                  denouncing pleasure and praing pain was born and I will give
-                  you a complete account of the
+                  denouncing pleasure and praising pain was born, and I will
+                  give you a complete account of the
                 </Text>
               </Flex>
             </Flex>
           </Flex>
+
+          {/* Centered Text and Additional Buttons */}
           <Flex
             alignItems="flex-start"
-            flexDirection={{ md: "row", base: "column " }}
+            justifyContent="flex-start"
+            flexDirection={{ md: "row", base: "column" }}
+            gap="44px"
           >
             <Flex
-              gap="38px"
               flex={1}
               flexDirection="column"
-              alignSelf={{ md: "auto", base: "stretch" }}
+              alignItems="flex-start"
+              textAlign="flex-start"
+              gap="40px"
             >
               <Text
-                size="text5xl"
+                fontSize="6xl"
                 w={{ md: "88%", base: "100%" }}
-                lineHeight="91px"
+                lineHeight="60px"
               >
                 Celebrating Love, One Frame at a Time
               </Text>
               <Text
-                size="textxs"
-                color="black.900 cc"
-                w={{ md: "90%", base: "100%" }}
+                fontSize="sm"
+                color="gray.700"
+                w={{ md: "100%", base: "100%" }}
                 lineHeight="30px"
               >
                 But I must explain to you how all this mistaken idea of
-                denouncing pleasure and praising pain was born and I will give
-                you a complete account of the system, and expound th
+                denouncing pleasure and praising pain was born, and I will give
+                you a complete account of the system, and expound the
               </Text>
-              <Flex flexDirection={{ md: "row", base: "column" }}>
+
+              {/* Buttons and Secondary Image Section */}
+              <Flex
+                gap="24px"
+                justifyContent="flex-start"
+                alignItems="flex-start"
+                flexDirection={{ base: "column", md: "row" }}
+              >
                 <Button
-                  size="2xl"
+                  size="lg"
                   fontFamily="Stigfier"
-                  minw="288px"
+                  minW="288px"
                   borderRadius="34px"
+                  bg="gray.500"
+                  color="white"
+                  _hover={{ bg: "gray.600" }}
                 >
                   Explore Now
                 </Button>
+
                 <Flex
-                  gap="34px"
-                  flex={1}
-                  alignItems="center"
-                  px={{ md: "56px", base: "16px", sm: "20px" }}
-                  alignSelf={{ md: "auto", base: "stretch" }}
-                  flexDirection={{ base: "column", sm: "row" }}
+                  gap="16px"
+                  alignItems="flex-start"
+                  justifyContent="flex-start"
+                  flexDirection="row"
                 >
                   <Image
                     src="images/img_frame_9.svg"
                     alt="Secondary Image"
                     h="68px"
-                    w={{ base: "100%", sm: "36%" }}
+                    w={{ base: "50px", sm: "36%" }}
                     fit="contain"
                   />
                   <Flex
-                    flex={1}
                     flexDirection="column"
                     alignItems="flex-start"
-                    alignSelf={{ base: "stretch", sm: "auto" }}
+                    textAlign="flex-start"
                   >
-                    <Text color="gray.500">230+</Text>
-                    <Text size="textxs">Wedding Theme</Text>
+                    <Text color="gray.500" fontSize="3xl">
+                      230+
+                    </Text>
+                    <Text fontSize="sm" color="gray.600">
+                      Wedding Themes
+                    </Text>
                   </Flex>
                 </Flex>
               </Flex>
             </Flex>
+
+            {/* Right-Side Large Image */}
             <Box
-              alignSelf="center"
               bg="gray.400"
-              w={{ md: "24%", base: "100%" }}
+              alignSelf="flex-start"
+              w={{ md: "30%", base: "100%" }}
+              borderRadius="12px"
             >
               <Image
                 src="images/img_prepared_wedding_hall.png"
                 alt="Prepared Hall Image"
-                h={{ md: "494px", base: "auto" }}
+                h={{ md: "390px", base: "auto" }}
                 w="100%"
                 fit="cover"
                 borderRadius="12px"

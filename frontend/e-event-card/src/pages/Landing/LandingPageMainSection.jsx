@@ -24,7 +24,7 @@ export default function LandingPageMainSection() {
               borderWidth="1px"
               borderStyle="solid"
               bg="white.a700_01"
-              w={{ md: "60%", base: "100%" }}
+              w={{ md: "80%", base: "100%" }}
               borderRadius="46px"
               p="32px"
             >
@@ -32,7 +32,7 @@ export default function LandingPageMainSection() {
                 justifyContent="center"
                 flexDirection={{ base: "column", md: "row" }}
                 alignItems="center"
-                gap="100px"
+                gap="200px"
               >
                 {/* Navigation Links */}
                 {["Home", "About", "Feature"].map((item, index) => (
@@ -70,7 +70,7 @@ export default function LandingPageMainSection() {
                 borderColor="gray.500"
                 borderWidth="1px"
                 borderStyle="solid"
-                minW="280px"
+                minW="350px"
                 height="60px"
                 borderRadius="46px"
                 fontSize="xl"
@@ -87,7 +87,7 @@ export default function LandingPageMainSection() {
                 borderColor="gray.500"
                 borderWidth="1px"
                 borderStyle="solid"
-                minW="280px"
+                minW="350px"
                 height="60px"
                 borderRadius="46px"
                 fontSize="xl"

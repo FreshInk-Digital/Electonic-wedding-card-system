@@ -12,7 +12,7 @@ import {
   Text,
   Flex,
   Link,
-  List,
+  UnorderedList,
   ListItem,
   IconButton,
   Image,
@@ -96,7 +96,7 @@ export default function LandingPage() {
                       w="128px"
                       fit="contain"
                     />
-                    <List
+                    <UnorderedList
                       styleType="none"
                       display="flex"
                       justifyContent="space-between"
@@ -128,7 +128,7 @@ export default function LandingPage() {
                           <Text size="texts">Gallery</Text>
                         </Link>
                       </ListItem>
-                    </List>
+                    </UnorderedList>
                   </Flex>
                   <Flex gap="6px">
                     <IconButton
@@ -173,7 +173,7 @@ export default function LandingPage() {
                   <Text size="textlg" color="black.900_cc">
                     Links
                   </Text>
-                  <List
+                  <UnorderedList
                     styleType="none"
                     gap="14px"
                     display="flex"
@@ -209,7 +209,7 @@ export default function LandingPage() {
                         </Text>
                       </Link>
                     </ListItem>
-                  </List>
+                  </UnorderedList>
                 </Flex>
                 <Flex
                   gap={{ base: "31px", sm: "62px" }}
