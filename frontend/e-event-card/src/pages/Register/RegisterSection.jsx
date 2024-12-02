@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   Image,
   Button,
@@ -7,14 +8,79 @@ import {
   Text,
   Container,
 } from "@chakra-ui/react";
-import React from "react";
+import Select from "react-select";
+
+// Define the country data manually
+const countries = [
+  {
+    name: "TZ",
+    phoneCode: "255",
+    flag: "https://flagcdn.com/w320/tz.png",
+  },
+  {
+    name: "KE",
+    phoneCode: "254",
+    flag: "https://flagcdn.com/w320/ke.png",
+  },
+  {
+    name: "UG",
+    phoneCode: "256",
+    flag: "https://flagcdn.com/w320/ug.png",
+  },
+  {
+    name: "RW",
+    phoneCode: "250",
+    flag: "https://flagcdn.com/w320/rw.png",
+  },
+  {
+    name: "BI",
+    phoneCode: "257",
+    flag: "https://flagcdn.com/w320/bi.png",
+  },
+];
+
+// Create country options for the dropdown
+const countryOptions = countries.map((country) => ({
+  label: (
+    <Flex alignItems="center" gap="8px">
+      <Image src={country.flag} alt={country.name} boxSize="20px" />
+      <Text size="texts">{`${country.name}`}</Text>
+    </Flex>
+  ),
+  value: country.phoneCode,
+}));
 
 export default function RegisterSection() {
+  const [selectedCountryCode, setSelectedCountryCode] = useState("255");
+  const [phoneNumber, setPhoneNumber] = useState("");
+
+  // Handle country code selection
+  const handleCountryChange = (selectedOption) => {
+    setSelectedCountryCode(selectedOption.value);
+  };
+
+  // Handle phone number input
+  const handlePhoneChange = (event) => {
+    const input = event.target.value.replace(/\D/g, ""); // Remove non-digit characters
+    if (input.length <= 9) {
+      setPhoneNumber(input);
+    }
+  };
+
+  // Format phone number with dash placeholders
+  const formatPhoneNumber = (phone) => {
+    const paddedPhone = phone.padEnd(9, "_"); // Add dashes to fill up to 9 digits
+    return paddedPhone
+      .split("")
+      .map((char, index) => (index < phone.length ? char : "_"))
+      .join("");
+  };
+
   return (
     <>
-      {/* register section */}
       <Box>
         <Box>
+          {/* Header Section */}
           <Flex
             bg="gray.500"
             justifyContent="center"
@@ -33,10 +99,8 @@ export default function RegisterSection() {
                 flexDirection="column"
               >
                 <Text size="text4xl" color="gray.50" lineHeight="61px">
-                  <>
-                    Register Now To Start <br />
-                    Your Event Planning
-                  </>
+                  Register Now To Start <br />
+                  Your Event Planning
                 </Text>
                 <Flex
                   mb="14px"
@@ -45,7 +109,7 @@ export default function RegisterSection() {
                   alignItems="flex-start"
                 >
                   <Text size="textmd" color="gray.50">
-                    Lorem ipsum dolor sit amet,{" "}
+                    Lorem ipsum dolor sit amet,
                   </Text>
                   <Text
                     size="textxs"
@@ -54,25 +118,25 @@ export default function RegisterSection() {
                     lineHeight="30px"
                   >
                     But I must explain to you how all this mistaken idea of
-                    denouncing pleasure and praising pain was born and I will
-                    give you a complete account account of the system, and
-                    expound th of the system,
+                    denouncing pleasure and praising pain was born, and I will
+                    give you a complete account of the system and expound it.
                   </Text>
                 </Flex>
               </Flex>
             </Container>
           </Flex>
+
+          {/* Form Section */}
           <Flex
             mt="-446px"
             position="relative"
             alignItems="center"
             mx={{ md: "80px", base: "0px" }}
-            flexDirection={{ md: "row-reverse", base: "column" }} // Switched to "row-reverse"
+            flexDirection={{ md: "row-reverse", base: "column" }}
           >
-            {/* Registration Form Section */}
             <Flex
               ml={{ md: "-58px", base: "0px" }}
-              gap="20px" // Reduced gap between elements
+              gap="20px"
               position="relative"
               bg="white.a700"
               boxShadow="xs"
@@ -80,53 +144,110 @@ export default function RegisterSection() {
               flexDirection="column"
               alignItems="center"
               justifyContent="center"
-              px={{ md: "40px", base: "16px" }} // Reduced horizontal padding
-              py={{ md: "80px", base: "12px", sm: "16px" }} // Reduced vertical padding
+              px={{ md: "40px", base: "16px" }}
+              py={{ md: "80px", base: "12px", sm: "16px" }}
             >
               <Text>Fill Your Inputs</Text>
               <Flex
-                gap="24px" // Reduced gap between form fields
+                gap="24px"
                 w={{ md: "92%", base: "100%" }}
                 flexDirection="column"
               >
-                <Flex gap="12px" flexDirection="column" alignItems="flex-start">
+                {/* Full Name Field */}
+                <Flex
+                  gap="12px"
+                  flexDirection="column"
+                  alignItems="flex-start"
+                >
                   <Text size="textmd">Full Name</Text>
                   <Input
-                    size="md" // Reduced size of inputs
-                    placeholder={`Your Name`}
+                    size="md"
+                    placeholder="Your Name"
                     type="text"
                     fontFamily="Stigfier"
                     alignSelf="stretch"
                   />
                 </Flex>
-                <Flex gap="12px" flexDirection="column" alignItems="flex-start">
-                  <Text size="textmd">Phone</Text>
-                  <Input
-                    placeholder={+255}
-                    fontFamily="Stigfier"
-                    alignSelf="stretch"
-                  />
+
+                {/* Phone Field with Country Code Dropdown */}
+                <Flex
+                  gap="12px"
+                  flexDirection="column"
+                  alignItems="flex-start"
+                >
+                  <Text size="textmd">Phone Number</Text>
+                  <Flex w="100%" gap="8px" alignItems="center">
+                    {/* Country Code Dropdown */}
+                    <Box flex="1">
+                      <Select
+                        options={countryOptions}
+                        onChange={handleCountryChange}
+                        defaultValue={{
+                          label: (
+                            <Flex alignItems="center" gap="8px">
+                              <Image
+                                src="https://flagcdn.com/w320/tz.png"
+                                alt="Tanzania"
+                                boxSize="20px"
+                              />
+                              <Text>Tanzania (+255)</Text>
+                            </Flex>
+                          ),
+                          value: "+255",
+                        }}
+                      />
+                    </Box>
+                    {/* Phone Number Input */}
+                    <Input
+                      flex="3"
+                      value={formatPhoneNumber(phoneNumber)}
+                      onChange={handlePhoneChange}
+                      fontFamily="Stigfier"
+                      type="tel"
+                      alignSelf="stretch"
+                      placeholder="_ _ _ _ _ _ _ _ _"
+                      textAlign="center"
+                    />
+                  </Flex>
+                  {/* Display Selected Country Code */}
+                  <Text size="textsm" mt="4px">
+                    Selected Country Code: {selectedCountryCode}
+                  </Text>
                 </Flex>
-                <Flex gap="12px" flexDirection="column" alignItems="flex-start">
+
+                {/* Password Field */}
+                <Flex
+                  gap="12px"
+                  flexDirection="column"
+                  alignItems="flex-start"
+                >
                   <Text size="textmd">Password</Text>
                   <Input
-                    placeholder={`********`}
+                    placeholder="********"
                     type="password"
                     fontFamily="Stigfier"
                     alignSelf="stretch"
                   />
                 </Flex>
-                <Flex gap="12px" flexDirection="column" alignItems="flex-start">
+
+                {/* Confirm Password Field */}
+                <Flex
+                  gap="12px"
+                  flexDirection="column"
+                  alignItems="flex-start"
+                >
                   <Text size="textmd">Confirm Password</Text>
                   <Input
-                    placeholder={`********`}
+                    placeholder="********"
                     type="password"
                     fontFamily="Stigfier"
                     alignSelf="stretch"
                   />
                 </Flex>
+
+                {/* Register Button */}
                 <Button
-                  size="sm" // Reduced button size
+                  size="sm"
                   color="gray.50"
                   fontFamily="Stigfier"
                   textTransform="capitalize"

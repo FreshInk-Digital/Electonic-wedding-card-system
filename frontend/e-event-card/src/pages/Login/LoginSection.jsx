@@ -7,9 +7,75 @@ import {
   Text,
   Container,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
+import Select from "react-select";
+
+// Define the country data manually
+const countries = [
+  {
+    name: "TZ",
+    phoneCode: "255",
+    flag: "https://flagcdn.com/w320/tz.png",
+  },
+  {
+    name: "KE",
+    phoneCode: "254",
+    flag: "https://flagcdn.com/w320/ke.png",
+  },
+  {
+    name: "UG",
+    phoneCode: "256",
+    flag: "https://flagcdn.com/w320/ug.png",
+  },
+  {
+    name: "RW",
+    phoneCode: "250",
+    flag: "https://flagcdn.com/w320/rw.png",
+  },
+  {
+    name: "BI",
+    phoneCode: "257",
+    flag: "https://flagcdn.com/w320/bi.png",
+  },
+];
+
+// Create country options for the dropdown
+const countryOptions = countries.map((country) => ({
+  label: (
+    <Flex alignItems="center" gap="8px">
+      <Image src={country.flag} alt={country.name} boxSize="20px" />
+      <Text size="texts">{`${country.name}`}</Text>
+    </Flex>
+  ),
+  value: country.phoneCode,
+}));
 
 export default function LoginSection() {
+  const [selectedCountryCode, setSelectedCountryCode] = useState("255");
+  const [phoneNumber, setPhoneNumber] = useState("");
+
+  // Handle country code selection
+  const handleCountryChange = (selectedOption) => {
+    setSelectedCountryCode(selectedOption.value);
+  };
+
+  // Handle phone number input
+  const handlePhoneChange = (event) => {
+    const input = event.target.value.replace(/\D/g, ""); // Remove non-digit characters
+    if (input.length <= 9) {
+      setPhoneNumber(input);
+    }
+  };
+
+  // Format phone number with dash placeholders
+  const formatPhoneNumber = (phone) => {
+    const paddedPhone = phone.padEnd(9, "_"); // Add dashes to fill up to 9 digits
+    return paddedPhone
+      .split("")
+      .map((char, index) => (index < phone.length ? char : "_"))
+      .join("");
+  };
+
   return (
     <>
       {/* login section */}
@@ -89,14 +155,53 @@ export default function LoginSection() {
                 w={{ md: "92%", base: "100%" }}
                 flexDirection="column"
               >
-                <Flex gap="12px" flexDirection="column" alignItems="flex-start">
-                  <Text size="textmd">Phone</Text>
-                  <Input
-                    placeholder={+255}
-                    fontFamily="Stigfier"
-                    alignSelf="stretch"
-                  />
+                {/* Phone Field with Country Code Dropdown */}
+                <Flex
+                  gap="12px"
+                  flexDirection="column"
+                  alignItems="flex-start"
+                >
+                  <Text size="textmd">Phone Number</Text>
+                  <Flex w="100%" gap="8px" alignItems="center">
+                    {/* Country Code Dropdown */}
+                    <Box flex="1">
+                      <Select
+                        options={countryOptions}
+                        onChange={handleCountryChange}
+                        defaultValue={{
+                          label: (
+                            <Flex alignItems="center" gap="8px">
+                              <Image
+                                src="https://flagcdn.com/w320/tz.png"
+                                alt="Tanzania"
+                                boxSize="20px"
+                              />
+                              <Text>Tanzania (+255)</Text>
+                            </Flex>
+                          ),
+                          value: "+255",
+                        }}
+                      />
+                    </Box>
+                    {/* Phone Number Input */}
+                    <Input
+                      flex="3"
+                      value={formatPhoneNumber(phoneNumber)}
+                      onChange={handlePhoneChange}
+                      fontFamily="Stigfier"
+                      type="tel"
+                      alignSelf="stretch"
+                      placeholder="_ _ _ _ _ _ _ _ _"
+                      textAlign="center"
+                    />
+                  </Flex>
+                  {/* Display Selected Country Code */}
+                  <Text size="textsm" mt="4px">
+                    Selected Country Code: {selectedCountryCode}
+                  </Text>
                 </Flex>
+
+                {/* Password Field */}
                 <Flex gap="12px" flexDirection="column" alignItems="flex-start">
                   <Text size="textmd">Password</Text>
                   <Input
