@@ -1,28 +1,29 @@
 import { Button, Link, Flex, Container, Box } from "@chakra-ui/react";
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 export default function Header() {
-  const [activeLink, setActiveLink] = useState("Home"); // Track the active link
   const navigate = useNavigate();
+  const location = useLocation(); // Hook to get the current route
 
-  const navigationLinks = [
-    { label: "Home", target: "/" },
-    { label: "About", target: "landing-content" },
-    { label: "Features", target: "features" },
-  ];
+  // Determine which links to show based on the current route
+  const isHomeRoute = location.pathname === "/"; // Check if current route is Home
+  const navigationLinks = isHomeRoute
+    ? [
+        { label: "Home", target: "/" },
+        { label: "About", target: "landing-content" },
+        { label: "Features", target: "features" },
+      ]
+    : [{ label: "Home", target: "/" }]; // Only show Home for Login/Register
 
-  const handleNavigation = (label, target) => {
-    setActiveLink(label); // Update active link
-
-    // Scroll to section for same-page navigation
+  const handleNavigation = (target) => {
+    // Scroll or navigate based on target
     if (target.startsWith("#") || !target.startsWith("/")) {
       const element = document.getElementById(target);
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
       }
     } else {
-      // Navigate to separate routes (Login/Register)
       navigate(target);
     }
   };
@@ -54,21 +55,21 @@ export default function Header() {
             >
               <Flex
                 justifyContent="center"
-                flexDirection={{ base: "column", md: "row" }}
+                flexDirection="row"
                 alignItems="center"
-                gap="200px"
+                gap="40px"
               >
-                {/* Navigation Links */}
                 {navigationLinks.map((link, index) => (
                   <Link
                     key={index}
                     onClick={(e) => {
                       e.preventDefault();
-                      handleNavigation(link.label, link.target);
+                      handleNavigation(link.target);
                     }}
                     _hover={{ textDecoration: "none" }}
-                    _active={{ color: "gray.900" }}
-                    color={activeLink === link.label ? "gray.900" : "gray.500"}
+                    color={
+                      location.pathname === link.target ? "gray.900" : "gray.500"
+                    }
                     fontSize="lg"
                     px="24px"
                     py="8px"
@@ -102,9 +103,7 @@ export default function Header() {
                 fontSize="xl"
                 _hover={{ bg: "gray.500", color: "white.a700_01" }}
                 _active={{ bg: "gray.300" }}
-                onClick={() => {
-                  handleNavigation("Login", "/login");
-                }}
+                onClick={() => navigate("/login")}
               >
                 Login
               </Button>
@@ -122,9 +121,7 @@ export default function Header() {
                 fontSize="xl"
                 _hover={{ bg: "gray.500", color: "white.a700_01" }}
                 _active={{ bg: "gray.300" }}
-                onClick={() => {
-                  handleNavigation("Register", "/register");
-                }}
+                onClick={() => navigate("/register")}
               >
                 Register
               </Button>
