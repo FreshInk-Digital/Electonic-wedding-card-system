@@ -31,6 +31,7 @@
     "libphonenumber-js": "^1.11.15",
     "react": "^18.3.1",
     "react-alice-carousel": "^2.9.1",
+    "react-datepicker": "^7.5.0",
     "react-dom": "^18.3.1",
     "react-helmet": "^6.1.0",
     "react-hook-form": "^7.53.1",

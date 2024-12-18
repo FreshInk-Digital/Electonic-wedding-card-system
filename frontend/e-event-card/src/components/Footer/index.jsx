@@ -8,7 +8,7 @@ export default function Footer() {
         as="footer"
         justifyContent="center"
         alignItems="center"
-        py={{ md: "150px", base: "16px", sm: "20px" }}
+        py={{ md: "80px", base: "16px", sm: "20px" }}
       >
         <Container w={{ md: "74%", base: "100%" }} px={{ md: "0", base: "20px" }}>
           <Flex
